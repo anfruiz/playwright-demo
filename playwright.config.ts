@@ -3,7 +3,7 @@ import { PlaywrightTestConfig } from "@playwright/test";
 const config: PlaywrightTestConfig = {
   testMatch: "*.spec.ts",
   /*reporter: [["json", { outputFile: "results.json" }]],*/
-  /*reporter: [ ['junit', { outputFile: 'results.xml' }] ],*/
+  reporter: [['list'], ['junit', { outputFile: 'reports/results.xml' }] ],
   timeout: 60000,
   retries: 1,
   use: {

@@ -7,8 +7,10 @@
     "test": "test"
   },
   "dependencies": {
+    "@naturalcycles/junit-lib": "^1.1.0",
     "@playwright/test": "^1.12.1",
-    "playwright": "^1.12.1"
+    "playwright": "^1.12.1",
+    "xunit-viewer": "^7.1.5"
   },
   "devDependencies": {},
   "scripts": {

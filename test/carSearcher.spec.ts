@@ -6,6 +6,7 @@ test("Car Searcher Form", async ({ page }) => {
 
   await homePage.goto();
   await homePage.searchCar();
+  await page.pause();
   const title = await homePage.searchButton();
-  expect(title).toBe("Encuentra tu vehículo soñado");
+  expect(await homePage.searchButton()).toBeTruthy;
 });

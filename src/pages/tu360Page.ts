@@ -36,6 +36,7 @@ export class Tu360Page {
   }
 
   async searchButton() {
-    return await this.page.innerText("h1");
+    return await this.page.isVisible("text=BUSCAR");
+    //return await this.page.innerText("h1");
   }
 }
