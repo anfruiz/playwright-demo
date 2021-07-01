@@ -4,7 +4,7 @@ const config: PlaywrightTestConfig = {
   testMatch: "*.spec.ts",
   /*reporter: [["json", { outputFile: "results.json" }]],*/
   reporter: [["list"], ["junit", { outputFile: "reports/results.xml" }]],
-  globalTimeout: 60000,
+  timeout: 60000,
   retries: 1,
   use: {
     screenshot: "only-on-failure",
