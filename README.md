@@ -1,5 +1,11 @@
+<br/>
 
-# Acceptance Test en el front con Playwright
+# PRUEBAS DE ACEPTACIÓN (FRONTEND)
+
+<br/>
+
+_____
+
 ## 1. Introducción
 Durante este post nos centraremos en abarcar las pruebas que se requieren ejecutar para garantizar la calidad de los flujos de usuarios, los inputs de los usuarios y acciones del front de las aplicaciones web modernas que se depliegan en el banco.
 
@@ -8,17 +14,26 @@ Es muy importante aclara que estas pruebas se realizan en componentes reales, ya
 - Por cada criterio de aceptación debe existir al menos un test
 - Probar código de la app, de forma rápida y automática, son muy apropiadas para las regresiones diarias
 
+<br/>
 
-Tambien cabe mencionar las 3 fases en la Pirámide que son:
+También cabe mencionar las 3 fases en la Pirámide que son:
 
 Unitarias
 Integración
 UI-E2E (Acceptance Test en el front)
 
+_____
+
 ## 2. Herramienta
 La herramienta que utilizaremos para realizar las pruebas de aceptación en el front es [PLAYWRIGHT](https://github.com/microsoft/playwright).
 
-(Imagen Technology Radar)
+<center>
+
+![Tech Radar Playwrihgt.png](/.attachments/Tech%20Radar%20Playwrihgt-df78f341-afb8-4e14-b5c5-a49f0e20b219.png)
+_Fig.1. Playwrihgt se posiciona en el Radar del 2021 como Apps para adoptar By: [Thoughtworks](https://www.thoughtworks.com/radar/tools/playwright)_
+
+
+</center>
 
 Playwright es una librería de Node.js desarrollada por Microsoft para automatizar los flujos de una aplicación web en Chromium, Firefox y WebKit de forma confiable y rápida.
 
@@ -29,7 +44,12 @@ Algunas características son:
 - Auto-waiting de los elementos del DOM hasta que estén listos para interactuar con ellos como click, escribir.
 - Emular dispositivos móviles, geolocalización y permisos.
 - Compatible con los siguientes lenguajes:
-    - (Imagen de lenguajes)
+    
+<center>
+
+![Lenguajes Compatibles con Playwright.png](/.attachments/Lenguajes%20Compatibles%20con%20Playwright-90e6a725-685b-41c9-a003-51294c154cb7.png)
+
+</center>
 
 
 ## 2.1 Runner
@@ -65,10 +85,16 @@ playwright.config.ts
 src
 acceptancetest/test/java
     |
-    \--src/pages
-      |
-      +-- HomePage.ts
-      |
+    \--src
+    |  |
+    |  \--pages
+    |  |  |
+    |  |  +-- HomePage.ts
+    |  |  
+    |  \--resources
+    |     |
+    |     +--Login.json
+    |
     \--test
       |
       +-- Home.spec.ts
@@ -82,5 +108,4 @@ acceptancetest/test/java
 ### 3.3 Uso de Fixture
 
 ### 3.4 Uso de Context
-
 
