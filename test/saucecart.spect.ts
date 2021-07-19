@@ -1,6 +1,5 @@
 import { test, expect } from "@playwright/test";
 
-
 test.beforeEach(async ({ page }) => {
   await page.goto("https://www.saucedemo.com");
   await page.fill('[data-test="username"]', "standard_user");
@@ -40,7 +39,7 @@ test(`Given I had items in the cart
   await page.click('[data-test="continue"]');
   expect(await page.innerText(".summary_subtotal_label")).toContain("55.97");
   await page.click('[data-test="finish"]');
-  expect(await page.innerText(".complete-header")).toEqual(
+  expect(await page.innerText(".complete-header")).toBe(
     "THANK YOU FOR YOUR ORDER"
   );
 });
