@@ -8,7 +8,7 @@ export class LogInPage {
   }
 
   async navigate() {
-    await this.page.goto("https://www.saucedemo.com");
+    await this.page.goto("/");
   }
 
   async logIn(username, password) {

@@ -109,3 +109,7 @@ dist
 test-results/
 *.html
 reports/
+
+#allure
+allure-report/
+allure-results/

@@ -8,8 +8,9 @@
   },
   "dependencies": {
     "@naturalcycles/junit-lib": "^1.1.0",
-    "@playwright/test": "^1.12.3",
-    "playwright": "^1.12.3",
+    "@playwright/test": "^1.13.1",
+    "experimental-allure-playwright": "^0.0.3",
+    "playwright": "^1.13.1",
     "xunit-viewer": "^7.1.5"
   },
   "devDependencies": {
