@@ -9,7 +9,8 @@
   "dependencies": {
     "@naturalcycles/junit-lib": "^1.1.0",
     "@playwright/test": "^1.13.1",
-    "experimental-allure-playwright": "^0.0.3",
+    "allure-playwright": "^2.0.0-beta.11",
+    "bancolombia-design-system": "https://artifactory.apps.bancolombia.com:443/api/npm/npm-bancolombia/bancolombia-design-system/-/bancolombia-design-system-1.5.1.tgz",
     "playwright": "^1.13.1",
     "xunit-viewer": "^7.1.5"
   },

@@ -8,10 +8,16 @@ export class HomePage {
   }
 
   async addToCart(item) {
-    await this.page.click(`[data-test="add-to-cart-sauce-labs-${item}"]`);
+    const addToCartButton = this.page.locator(
+      `[data-test="add-to-cart-sauce-labs-${item}"]`
+    );
+
+    await addToCartButton.click();
   }
 
   async goToCart() {
-    await this.page.click(".shopping_cart_link");
+    const cartButton = this.page.locator(".shopping_cart_link");
+    
+    await cartButton.click();
   }
 }

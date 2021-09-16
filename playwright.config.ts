@@ -1,15 +1,16 @@
 import { PlaywrightTestConfig, devices } from "@playwright/test";
 
 const config: PlaywrightTestConfig = {
+  globalSetup: require.resolve("./global-setup.ts"),
   testMatch: "*.spec.ts",
-  /*reporter: [["json", { outputFile: "results.json" }]],*/
   reporter: [
     ["list"],
     ["junit", { outputFile: "reports/results.xml" }],
-    ["experimental-allure-playwright"],
+    ["allure-playwright"],
   ],
   timeout: 600000,
   retries: 1,
+  grep: new RegExp("@POM"),
   use: {
     baseURL: "https://www.saucedemo.com",
     screenshot: "only-on-failure",

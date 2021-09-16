@@ -7,17 +7,24 @@ export class LogInPage {
     this.page = page;
   }
 
-  async navigate() {
-    await this.page.goto("/");
+  async navigate(url) {
+    await this.page.goto(url);
   }
 
   async logIn(username, password) {
-    await this.page.fill('[data-test="username"]', username);
-    await this.page.fill('[data-test="password"]', password);
-    await this.page.click('[data-test="login-button"]');
+    const usernameInput = this.page.locator('[data-test="username"]');
+    const passwordInput = this.page.locator('[data-test="password"]');
+    const logInButton = this.page.locator('[data-test="login-button"]');
+
+    await usernameInput.fill(username);
+    await passwordInput.fill(password);
+    await logInButton.click();
   }
 
   async getErrorMessageClassAttribute() {
-    return await this.page.getAttribute(".error-message-container", "class");
+    const logInErrorMessage = this.page.locator(".error-message-container");
+
+    return await logInErrorMessage.getAttribute("class");
   }
 }
+

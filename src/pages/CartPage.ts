@@ -8,23 +8,38 @@ export class CartPage {
   }
 
   async removeItem(item) {
-    await this.page.click(`[data-test='remove-sauce-labs-${item}']`);
+    const removeButton = this.page.locator(
+      `[data-test='remove-sauce-labs-${item}']`
+    );
+
+    await removeButton.click();
   }
 
-  async completePurchase() {
-    await this.page.click('[data-test="checkout"]');
-    await this.page.fill('[data-test="firstName"]', "Fake");
-    await this.page.fill('[data-test="lastName"]', "User");
-    await this.page.fill('[data-test="postalCode"]', "00000");
-    await this.page.click('[data-test="continue"]');
-    await this.page.click('[data-test="finish"]');
+  async completePurchase(userInfo) {
+    const checkoutButton = this.page.locator('[data-test="checkout"]');
+    const firstNameInput = this.page.locator('[data-test="firstName"]');
+    const lastNameInput = this.page.locator('[data-test="lastName"]');
+    const postalCodeInput = this.page.locator('[data-test="postalCode"]');
+    const continueButton = this.page.locator('[data-test="continue"]');
+    const finishButton = this.page.locator('[data-test="finish"]');
+
+    await checkoutButton.click();
+    await firstNameInput.fill(userInfo.firstName);
+    await lastNameInput.fill(userInfo.lastName);
+    await postalCodeInput.fill(userInfo.postalCode);
+    await continueButton.click();
+    await finishButton.click();
   }
 
   async getMessage() {
-    return await this.page.innerText(".complete-header");
+    const completePurchaseMessage = this.page.locator(".complete-header");
+
+    return await completePurchaseMessage.innerText();
   }
 
   async getCartItems() {
-    return await this.page.$$(".cart_item");
+     const cartItems = this.page.locator(".cart_item");
+     
+    return await cartItems.elementHandles();
   }
 }
