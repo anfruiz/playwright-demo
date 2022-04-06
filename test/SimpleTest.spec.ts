@@ -1,5 +1,8 @@
 import { test, expect } from "@playwright/test";
 
+/**
+ * This is a basic example of Playwright without use POM and other features 
+ */
 test.beforeEach(async ({ page }) => {
   await page.goto("https://www.saucedemo.com");
   await page.fill('[data-test="username"]', "standard_user");

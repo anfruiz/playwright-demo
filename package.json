@@ -7,15 +7,9 @@
     "test": "test"
   },
   "dependencies": {
-    "@naturalcycles/junit-lib": "^1.1.0",
-    "@playwright/test": "^1.13.1",
-    "allure-playwright": "^2.0.0-beta.11",
+    "@playwright/test": "^1.20.1",
     "bancolombia-design-system": "https://artifactory.apps.bancolombia.com:443/api/npm/npm-bancolombia/bancolombia-design-system/-/bancolombia-design-system-1.5.1.tgz",
-    "playwright": "^1.13.1",
-    "xunit-viewer": "^7.1.5"
-  },
-  "devDependencies": {
-    "babel-plugin-istanbul": "^6.0.0"
+    "playwright": "^1.20.1"
   },
   "scripts": {
     "test": "npx playwright test",

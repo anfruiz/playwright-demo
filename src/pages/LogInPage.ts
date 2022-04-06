@@ -1,10 +1,18 @@
-import { Page } from "playwright";
+import { Locator, Page } from "playwright";
 
 export class LogInPage {
   readonly page: Page;
+  readonly usernameInput: Locator;
+  readonly passwordInput: Locator;
+  readonly logInButton: Locator;
+  readonly logInErrorMessage: Locator;
 
   constructor(page: Page) {
     this.page = page;
+    this.usernameInput = page.locator('[data-test="username"]');
+    this.passwordInput = page.locator('[data-test="password"]');
+    this.logInButton = page.locator('[data-test="login-button"]');
+    this.logInErrorMessage = page.locator('.error-message-container');
   }
 
   async navigate(url) {
@@ -12,19 +20,13 @@ export class LogInPage {
   }
 
   async logIn(username, password) {
-    const usernameInput = this.page.locator('[data-test="username"]');
-    const passwordInput = this.page.locator('[data-test="password"]');
-    const logInButton = this.page.locator('[data-test="login-button"]');
-
-    await usernameInput.fill(username);
-    await passwordInput.fill(password);
-    await logInButton.click();
+    await this.usernameInput.fill(username);
+    await this.passwordInput.fill(password);
+    await this.logInButton.click();
   }
 
   async getErrorMessageClassAttribute() {
-    const logInErrorMessage = this.page.locator(".error-message-container");
-
-    return await logInErrorMessage.getAttribute("class");
+    return await this.logInErrorMessage.getAttribute("class");
   }
 }
 

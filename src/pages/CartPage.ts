@@ -1,10 +1,26 @@
-import { Page } from "playwright";
+import { Locator, Page } from "playwright";
 
 export class CartPage {
   readonly page: Page;
+  readonly checkoutButton: Locator;
+  readonly firstNameInput: Locator;
+  readonly lastNameInput: Locator;
+  readonly postalCodeInput: Locator;
+  readonly continueButton: Locator;
+  readonly finishButton: Locator;
+  readonly completePurchaseMessage: Locator;
+  readonly cartItems: Locator;
 
   constructor(page: Page) {
     this.page = page;
+    this.checkoutButton = page.locator('[data-test="checkout"]');
+    this.firstNameInput = page.locator('[data-test="firstName"]');
+    this.lastNameInput = page.locator('[data-test="lastName"]');
+    this.postalCodeInput = page.locator('[data-test="postalCode"]');
+    this.continueButton = page.locator('[data-test="continue"]');
+    this.finishButton = page.locator('[data-test="finish"]');
+    this.completePurchaseMessage = page.locator(".complete-header");
+    this.cartItems = page.locator(".cart_item");
   }
 
   async removeItem(item) {
@@ -16,30 +32,19 @@ export class CartPage {
   }
 
   async completePurchase(userInfo) {
-    const checkoutButton = this.page.locator('[data-test="checkout"]');
-    const firstNameInput = this.page.locator('[data-test="firstName"]');
-    const lastNameInput = this.page.locator('[data-test="lastName"]');
-    const postalCodeInput = this.page.locator('[data-test="postalCode"]');
-    const continueButton = this.page.locator('[data-test="continue"]');
-    const finishButton = this.page.locator('[data-test="finish"]');
-
-    await checkoutButton.click();
-    await firstNameInput.fill(userInfo.firstName);
-    await lastNameInput.fill(userInfo.lastName);
-    await postalCodeInput.fill(userInfo.postalCode);
-    await continueButton.click();
-    await finishButton.click();
+    await this.checkoutButton.click();
+    await this.firstNameInput.fill(userInfo.firstName);
+    await this.lastNameInput.fill(userInfo.lastName);
+    await this.postalCodeInput.fill(userInfo.postalCode);
+    await this.continueButton.click();
+    await this.finishButton.click();
   }
 
   async getMessage() {
-    const completePurchaseMessage = this.page.locator(".complete-header");
-
-    return await completePurchaseMessage.innerText();
+    return await this.completePurchaseMessage.innerText();
   }
 
   async getCartItems() {
-     const cartItems = this.page.locator(".cart_item");
-     
-    return await cartItems.elementHandles();
+    return await this.cartItems.elementHandles();
   }
 }

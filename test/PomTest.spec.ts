@@ -27,9 +27,9 @@ const fixtureTest = base.extend<{ cartPage: CartPage; logInPage: LogInPage }>({
 
 fixtureTest(
   `@POM
-  Given I was in demosauce page
-    When I loggin with wrong credentials
-    Then I will see the message error`,
+   Given I was in demosauce page
+   When I loggin with wrong credentials
+   Then I will see the message error`,
   async ({ logInPage }) => {
     fixtureTest
       .expect(await logInPage.getErrorMessageClassAttribute())
@@ -39,7 +39,7 @@ fixtureTest(
 
 fixtureTest(
   `@POM
-  Given I was logged in demosauce
+    Given I was logged in demosauce
     When I add two products to cart
     Then I will see two items in the cart`,
   async ({ cartPage }) => {
@@ -49,7 +49,7 @@ fixtureTest(
 
 fixtureTest(
   `@POM
-  Given I was logged in demosauce
+    Given I was logged in demosauce
     And I add two products to cart
     When I remove a product from the cart
     Then I will see one item in the cart`,
@@ -62,7 +62,7 @@ fixtureTest(
 
 fixtureTest(
   `@POM
-  Given I had items in the cart
+    Given I had items in the cart
     When I finish the purchase
     Then I will see the message 'THANK YOU FOR YOUR ORDER'`,
   async ({ cartPage }) => {
