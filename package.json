@@ -7,14 +7,12 @@
     "test": "test"
   },
   "dependencies": {
-    "@playwright/test": "^1.20.1",
-    "bancolombia-design-system": "https://artifactory.apps.bancolombia.com:443/api/npm/npm-bancolombia/bancolombia-design-system/-/bancolombia-design-system-1.5.1.tgz",
-    "playwright": "^1.20.1"
+    "@playwright/test": "^1.24.2",
+    "playwright": "^1.24.2"
   },
   "scripts": {
     "test": "npx playwright test",
-    "test:debug": "PWDEBUG=1 npx playwright test",
-    "test:report": "npx xunit-viewer -r reports/results.xml"
+    "test:debug": "PWDEBUG=1 npx playwright test"
   },
   "repository": {
     "type": "git",
