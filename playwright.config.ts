@@ -9,7 +9,7 @@ const config: PlaywrightTestConfig = {
     ["json", { outputFile: "reports/jsonReport/results.json" }],
     ["html", { outputFolder: "reports/htmlReport", open: "never" }],
   ],
-  timeout: 600000,
+  timeout: 60000,
   retries: 1,
   grep: new RegExp("@POM"),
   fullyParallel: true,
