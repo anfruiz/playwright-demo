@@ -14,25 +14,18 @@ test.beforeEach(async ({ page }) => {
   await page.click(".shopping_cart_link");
 });
 
-test(`Given I was logged in demosauce
-    When I add two products to cart
-    Then I will see two items in the cart`, async ({ page }) => {
+test('El carrito de compras debe tener productos', async ({ page }) => {
   const items = await page.$$(".cart_item");
   expect(items).toHaveLength(3);
 });
 
-test(`Given I was logged in demosauce
-    And I add two products to cart
-    When I remove a product from the cart
-    Then I will see one item in the cart`, async ({ page }) => {
+test('Eliminar un producto del carrito de compras', async ({ page }) => {
   expect(await page.$$(".cart_item")).toHaveLength(3);
   await page.click("[data-test='remove-sauce-labs-bolt-t-shirt']");
   expect(await page.$$(".cart_item")).toHaveLength(2);
 });
 
-test(`Given I had items in the cart
-    When I finish the purchase
-    Then I will see the message 'THANK YOU FOR YOUR ORDER'`, async ({
+test('Completar una compra', async ({
   page,
 }) => {
   await page.click('[data-test="checkout"]');
